@@ -1,0 +1,15 @@
+accelerate launch --num_processes=1 ddpm.py \
+  --train_data_dir="/data1/yixian_data/generative_model_TA/subclass12" \
+  --resolution=64 \
+  --output_dir="ddpm-ema-subclass-small" \
+  --train_batch_size=16 \
+  --num_epochs=30 \
+  --gradient_accumulation_steps=1 \
+  --use_ema \
+  --checkpointing_steps 20000 \
+  --save_images_epochs 1 \
+  --learning_rate=1e-4 \
+  --lr_warmup_steps=500 \
+  --mixed_precision=no \
+  --dataloader_num_workers 8 \
+  --num_class 12 \
